@@ -1,7 +1,17 @@
 import { Component } from "react";
 
 class MovieCard extends Component {
+    constructor(){
+        super();
+        this.state = {
+            title : "The Avengers!",
+            plot : "Supernatutal power shown in the movie",
+            price : 199,
+            rating : 8.9
+        }
+    }
     render() {
+        const {title,plot,price,rating} = this.state;
         return (
             <div className="main">
 
@@ -17,13 +27,13 @@ class MovieCard extends Component {
                     <div className="right">
 
                         {/**Title, plot, price of the movie */}
-                        <div className="title">The Avengers</div>
-                        <div className="plot">Supernatutal power shown in the movie.</div>
-                        <div className="price">Rs. 199</div>
+                        <div className="title">{title}</div>
+                        <div className="plot">{plot}</div>
+                        <div className="price">{price}</div>
 
                         {/**Footer starts here with ratings, stars and buttons */}
                         <div className="footer">
-                            <div className="rating">8.9</div>
+                            <div className="rating">{rating}</div>
 
                              {/**Star image with increase and decrease buttons and star count */}
                             <div className="star-dis">
