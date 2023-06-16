@@ -8,7 +8,8 @@ class MovieCard extends Component {
             plot: "Supernatutal power shown in the movie",
             price: 199,
             rating: 8.9,
-            stars: 0
+            stars: 0,
+            fav: false
         }
         this.addStars = this.addStars.bind(this);
     }
@@ -21,7 +22,7 @@ class MovieCard extends Component {
             return;
         }
 
-         // to check asynchronous nature
+        // to check asynchronous nature
         // this.setState({
         //     stars: this.state.stars + 0.5
         // }, () =>
@@ -35,11 +36,11 @@ class MovieCard extends Component {
         // this.setState({
         //     stars: this.state.stars + 5
         // });
-       
+
         // this.setState({
         //     stars: this.state.stars + 4
         // });
-       
+
         // this.setState({
         //     stars: this.state.stars + 3
         // });
@@ -56,26 +57,26 @@ class MovieCard extends Component {
 
 
 
-      // Second form of setState
-      this.setState((prevState) =>{
-        return{
-            stars:prevState.stars + 0.5
-        }
-    });
-    // Second form of setState
-    this.setState((prevState) =>{
-        return{
-            stars:prevState.stars + 0.5
-        }
-    });
-    // Second form of setState
-    this.setState((prevState) =>{
-        return{
-            stars:prevState.stars + 0.5
-        }
-    });
+        // Second form of setState
+        this.setState((prevState) => {
+            return {
+                stars: prevState.stars + 0.5
+            }
+        });
+        // Second form of setState
+        this.setState((prevState) => {
+            return {
+                stars: prevState.stars + 0.5
+            }
+        });
+        // Second form of setState
+        this.setState((prevState) => {
+            return {
+                stars: prevState.stars + 0.5
+            }
+        });
 
-       
+
 
     }
 
@@ -92,9 +93,15 @@ class MovieCard extends Component {
 
     }
 
+    handleFav = () => {
+        this.setState({
+            fav: !this.state.fav
+        })
+    }
+
     render() {
         // console.log('Rendered the Component')
-        const { title, plot, price, rating, stars } = this.state;
+        const { title, plot, price, rating, stars, fav } = this.state;
         return (
             <div className="main">
 
@@ -138,7 +145,14 @@ class MovieCard extends Component {
                             </div>
 
                             {/**Favourite and add to cart buttons */}
-                            <button className="favourite-btn">Favorite</button>
+                            {/* {
+                                fav ? <button className="unfavourite-btn" onClick={this.handleFav}>Un-Favorite</button> :
+                                    <button className="favourite-btn" onClick={this.handleFav}>Favorite</button>
+                            } */}
+
+                            <button className={fav ? "unfavourite-btn" : "favourite-btn"} onClick={this.handleFav}>{fav ? "unfavourite" : "favourite"}</button>
+
+
                             <button className="cart-btn">Add to cart</button>
                         </div>
 
