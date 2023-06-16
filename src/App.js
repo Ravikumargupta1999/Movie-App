@@ -1,10 +1,12 @@
-import MovieCard from "./Moviecard";
+import Student from "./Student";
 
 function App() {
   return (
     <>
-       <h1>Movie App</h1>
-       <MovieCard/>
+       <Student name ="Alexa" marks = {80}/>
+       <Student name ="Siri" marks = {70}/>
+       <Student name ="AlA" marks = {60}/>
+       <Student  marks = {60}/>
     </>
   );
 }
