@@ -7,7 +7,8 @@ class MovieCard extends Component {
             title : "The Avengers!",
             plot : "Supernatutal power shown in the movie",
             price : 199,
-            rating : 8.9
+            rating : 8.9,
+            stars : 0
         }
         this.addStars = this.addStars.bind(this);
     }
@@ -15,13 +16,28 @@ class MovieCard extends Component {
     // function keyword is not required as we are using inside class
     addStars = () => {
         // console.log('Starts are Added');
-        console.log('this: ',this);
+        // console.log('this: ',this);
         // console.log('this.state: ',this.state);
 
+        // this.state.stars += 0.5;
+        //   console.log('this: ',this,"this.state.stars: ",this.state.stars);
+
+        // first form of setState 
+        this.setState({
+            stars : this.state.stars + 0.5
+        });
+
+
+        // Second form of setState
+        this.setState((prevState) =>{
+            return{
+                stars:prevState.stars + 0.5
+            }
+        });
     }
 
     render() {
-        const {title,plot,price,rating} = this.state;
+        const {title,plot,price,rating,stars} = this.state;
         return (
             <div className="main">
 
@@ -60,7 +76,7 @@ class MovieCard extends Component {
                                     src="https://cdn-icons-png.flaticon.com/128/2997/2997933.png"
                                     onClick={this.addStars}
                                 />
-                                <span className="starCount">0</span>
+                                <span className="starCount">{stars}</span>
                             </div>
 
                               {/**Favourite and add to cart buttons */}
