@@ -9,7 +9,8 @@ class MovieCard extends Component {
             price: 199,
             rating: 8.9,
             stars: 0,
-            fav: false
+            fav: false,
+            isIncart: false
         }
         this.addStars = this.addStars.bind(this);
     }
@@ -99,9 +100,16 @@ class MovieCard extends Component {
         })
     }
 
+    //Toggle add to cart button
+    handleAddToCart = () => {
+        this.setState({
+            isIncart: !this.state.isIncart
+        })
+    }
+
     render() {
         // console.log('Rendered the Component')
-        const { title, plot, price, rating, stars, fav } = this.state;
+        const { title, plot, price, rating, stars, fav, isIncart } = this.state;
         return (
             <div className="main">
 
@@ -153,7 +161,16 @@ class MovieCard extends Component {
                             <button className={fav ? "unfavourite-btn" : "favourite-btn"} onClick={this.handleFav}>{fav ? "unfavourite" : "favourite"}</button>
 
 
-                            <button className="cart-btn">Add to cart</button>
+
+
+                            {/* <button className="cart-btn">Add to cart</button>
+                             */}
+                            {/**Conditional Rendering on Add to Cart Button */}
+                            <button className={isIncart ? "unfavourite-btn" : "cart-btn"} onClick={this.handleAddToCart}>
+                                {isIncart ? "Remove from Cart" : "Add to Cart"}
+                            </button>
+
+
                         </div>
 
                     </div>
