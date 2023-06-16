@@ -1,47 +1,104 @@
 import { Component } from "react";
 
 class MovieCard extends Component {
-    constructor(){
+    constructor() {
         super();
         this.state = {
-            title : "The Avengers!",
-            plot : "Supernatutal power shown in the movie",
-            price : 199,
-            rating : 8.9,
-            stars : 0
+            title: "The Avengers!",
+            plot: "Supernatutal power shown in the movie",
+            price: 199,
+            rating: 8.9,
+            stars: 0
         }
         this.addStars = this.addStars.bind(this);
     }
 
     // function keyword is not required as we are using inside class
     addStars = () => {
-        // console.log('Starts are Added');
-        // console.log('this: ',this);
-        // console.log('this.state: ',this.state);
 
-        // this.state.stars += 0.5;
-        //   console.log('this: ',this,"this.state.stars: ",this.state.stars);
+        // form 1
+        if (this.state.stars >= 5) {
+            return;
+        }
 
-        // first form of setState 
+         // to check asynchronous nature
+        // this.setState({
+        //     stars: this.state.stars + 0.5
+        // }, () =>
+        //     console.log("stars inside callback ",this.state.stars)
+        // );
+        // console.log("stars",this.state.stars)
+
+
+
+        // To Check Batching
+        // this.setState({
+        //     stars: this.state.stars + 5
+        // });
+       
+        // this.setState({
+        //     stars: this.state.stars + 4
+        // });
+       
+        // this.setState({
+        //     stars: this.state.stars + 3
+        // });
+        // this.setState({
+        //     stars: this.state.stars + 2
+        // });
+
+
+
+        // this.setState({
+        //     stars: this.state.stars + 0.5
+        // });
+
+
+
+
+      // Second form of setState
+      this.setState((prevState) =>{
+        return{
+            stars:prevState.stars + 0.5
+        }
+    });
+    // Second form of setState
+    this.setState((prevState) =>{
+        return{
+            stars:prevState.stars + 0.5
+        }
+    });
+    // Second form of setState
+    this.setState((prevState) =>{
+        return{
+            stars:prevState.stars + 0.5
+        }
+    });
+
+       
+
+    }
+
+
+    decStars = () => {
+        // form 1
+        if (this.state.stars <= 0) {
+            return;
+        }
         this.setState({
-            stars : this.state.stars + 0.5
+            stars: this.state.stars - 0.5
         });
 
 
-        // Second form of setState
-        this.setState((prevState) =>{
-            return{
-                stars:prevState.stars + 0.5
-            }
-        });
     }
 
     render() {
-        const {title,plot,price,rating,stars} = this.state;
+        // console.log('Rendered the Component')
+        const { title, plot, price, rating, stars } = this.state;
         return (
             <div className="main">
 
-                 {/**Movie Card */}
+                {/**Movie Card */}
                 <div className="movie-card">
 
                     {/**Left section of Movie Card */}
@@ -49,7 +106,7 @@ class MovieCard extends Component {
                         <img alt="Poster" src='https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg' />
                     </div>
 
-                     {/**Right section Movie Card */}
+                    {/**Right section Movie Card */}
                     <div className="right">
 
                         {/**Title, plot, price of the movie */}
@@ -61,11 +118,12 @@ class MovieCard extends Component {
                         <div className="footer">
                             <div className="rating">{rating}</div>
 
-                             {/**Star image with increase and decrease buttons and star count */}
+                            {/**Star image with increase and decrease buttons and star count */}
                             <div className="star-dis">
                                 <img className="str-btn"
                                     alt="Decrease"
                                     src="https://cdn-icons-png.flaticon.com/128/2801/2801932.png"
+                                    onClick={this.decStars}
                                 />
                                 <img className="stars"
                                     alt="stars"
@@ -79,7 +137,7 @@ class MovieCard extends Component {
                                 <span className="starCount">{stars}</span>
                             </div>
 
-                              {/**Favourite and add to cart buttons */}
+                            {/**Favourite and add to cart buttons */}
                             <button className="favourite-btn">Favorite</button>
                             <button className="cart-btn">Add to cart</button>
                         </div>
