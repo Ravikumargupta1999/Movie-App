@@ -9,7 +9,17 @@ class MovieCard extends Component {
             price : 199,
             rating : 8.9
         }
+        this.addStars = this.addStars.bind(this);
     }
+
+    // function keyword is not required as we are using inside class
+    addStars = () => {
+        // console.log('Starts are Added');
+        console.log('this: ',this);
+        // console.log('this.state: ',this.state);
+
+    }
+
     render() {
         const {title,plot,price,rating} = this.state;
         return (
@@ -48,6 +58,7 @@ class MovieCard extends Component {
                                 <img className="str-btn"
                                     alt="increase"
                                     src="https://cdn-icons-png.flaticon.com/128/2997/2997933.png"
+                                    onClick={this.addStars}
                                 />
                                 <span className="starCount">0</span>
                             </div>
