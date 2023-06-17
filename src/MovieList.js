@@ -8,6 +8,7 @@ class MovieList extends React.Component {
             movies: [
 
                 {
+                    id : 1,
                     title: 'The Avengers',
                     plot:
                         "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
@@ -20,6 +21,7 @@ class MovieList extends React.Component {
                     isInCart: false
                 },
                 {
+                    id : 2,
                     title: 'Iron Man',
                     plot:
                         'After being held captive in an Afghan cave, billionaire engineer Tony starsk creates a unique weaponized suit of armor to fight evil.',
@@ -32,6 +34,7 @@ class MovieList extends React.Component {
                     isInCart: false
                 },
                 {
+                    id : 3,
                     title: 'The Dark Knight',
                     plot:
                         'When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.',
@@ -110,7 +113,8 @@ class MovieList extends React.Component {
                                                     addStars={this.handleIncStars}
                                                     decStars={this.handleDecStars}
                                                     toggleFav={this.handleToggleFav}
-                                                    toggleCart={this.handleToggleCart} />
+                                                    toggleCart={this.handleToggleCart} 
+                                                    key ={movie.id}/>
 
                 ))}
             </>
