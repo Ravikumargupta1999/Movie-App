@@ -7,8 +7,8 @@ import Navbar from "./Navbar";
 function App() {
   return (
     <>
-       <HeadingOne/>
-       <HeadingTwo/>
+       <Navbar/>
+       <MovieList/>
     </>
   );
 }
