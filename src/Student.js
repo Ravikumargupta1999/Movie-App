@@ -16,7 +16,7 @@
 
 
 function Student(props) {
-    const {stuname,marks} = props;
+    const { stuname, marks } = props;
     // props.stuname = "Ravi";  // props can't be modified
     return (
         <>
@@ -26,5 +26,6 @@ function Student(props) {
         </>
     )
 }
+
 
 export default Student;

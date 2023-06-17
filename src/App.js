@@ -1,20 +1,13 @@
-import Student from "./Student";
+import MovieList from "./MovieList";
+
 
 function App() {
   return (
     <>
-      <Student stuname="Alexa" marks={80} />
-      <Student stuname="Siri" marks={70} />
-      <Student stuname="RISHIKA" marks={60} />
-      <Student stuname="RAVI" />
-      <Student marks={60} />
+      <h1>Movie App</h1>
+      <MovieList />
     </>
   );
-}
-
-Student.defaultProps = {
-  stuname: "Student",
-  marks: "N.A."
 }
 
 export default App;
