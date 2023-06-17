@@ -6,7 +6,7 @@ class MovieList extends Component {
     render() {
         // const {title,plot,price,rating,stars,fav,isIncart,poster} = this.state.movies
         const { movies,addStars,decStars,toggleFav,toggleCart } = this.props;
-        console.log(this.props)
+        // console.log(this.props)
 
         return (
             <>
